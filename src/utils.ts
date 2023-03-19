@@ -1,7 +1,20 @@
 import { Movie } from "./types";
 
 export const URL_PREFIX = 'http://localhost:3000';
+const API_KEY = ''; // removed for security reasons (and github revoking my access to the API)
 const MOVIES_URL = 'https://raw.githubusercontent.com/theapache64/top250/master/top250_min.json';
+
+export async function getBackdropUrl(imdb_id: string) {
+    const response = await fetch(`https://api.themoviedb.org/3/find/${imdb_id}?api_key=${API_KEY}&language=en-US&external_source=imdb_id`);
+    const data = await response.json();
+    return `https://image.tmdb.org/t/p/original/${data.movie_results[0].backdrop_path}`;
+}
+
+export async function getOverview(imdb_id: string) {
+    const response = await fetch(`https://api.themoviedb.org/3/find/${imdb_id}?api_key=${API_KEY}&language=en-US&external_source=imdb_id`);
+    const data = await response.json();
+    return data.movie_results[0].overview;
+}
 
 export async function getMovies() {
     const response = await fetch(MOVIES_URL);
