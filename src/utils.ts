@@ -25,7 +25,6 @@ export async function addMovieToFavorites(imdb_id: string) {
         },
         body: JSON.stringify({ imdb_id }),
     });
-    console.log("addMovieToFavorites", imdb_id, res.ok);
     return res.ok;
 }
 
