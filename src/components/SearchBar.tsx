@@ -3,10 +3,10 @@ import { useState } from "react";
 import styled from "styled-components";
 
 const SearchBar = styled.input`
-    width: 100%;
-    height: 40px;
+    width: 296px;
+    height: 32px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 56px;
     padding: 0 10px;
     font-size: 16px;
     outline: none;
