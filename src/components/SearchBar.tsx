@@ -14,11 +14,16 @@ const SearchBar = styled.input`
 
 type SearchProps = {
     movies: Movie[];
+    filteredMovies: Movie[];
     setFilteredMovies: (movies: Movie[]) => void;
 };
 
-const Search = ({movies, setFilteredMovies}: SearchProps) => {
+const Search = ({movies, filteredMovies, setFilteredMovies}: SearchProps) => {
     const [searchTerm, setSearchTerm] = useState("");
+
+    const sortMovies = () => {
+        setFilteredMovies([...filteredMovies].reverse());
+    };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSearchTerm(e.target.value);
@@ -30,12 +35,15 @@ const Search = ({movies, setFilteredMovies}: SearchProps) => {
     };
 
     return (
-        <SearchBar
-            type="text"
-            placeholder="Search..."
-            value={searchTerm}
-            onChange={handleChange}
-        />
+        <>
+            <SearchBar
+                type="text"
+                placeholder="Search..."
+                value={searchTerm}
+                onChange={handleChange}
+            />
+            <button onClick={sortMovies}>Reverse Order</button>
+        </>
     );
 };
 

@@ -33,7 +33,7 @@ const MovieListSearch = ({ movies }: {movies: Movie[]}) => {
     return (
         <Container>
             <h1>IMDB&apos;s Top 250</h1>
-            <Search movies={movies} setFilteredMovies={setFilteredMovies}/>
+            <Search movies={movies} filteredMovies={filteredMovies} setFilteredMovies={setFilteredMovies}/>
             <MovieListContainer movies={filteredMovies} favorites={favorites} />
         </Container>
     );

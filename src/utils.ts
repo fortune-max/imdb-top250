@@ -8,8 +8,8 @@ export async function getMovies() {
     const movies: Movie[] = await response.json();
     movies.forEach((movie) => {
         movie.imdb_id = movie.imdb_url.slice(7, -1);
-    });
-    return movies;
+    })
+    return movies.sort((a, b) => a.rating - b.rating);
 }
 
 export async function getMovie(imdb_id: string) {
