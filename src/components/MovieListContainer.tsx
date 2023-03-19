@@ -8,11 +8,11 @@ export const MovieList = styled.div`
     gap: 1rem;
 `;
 
-const MovieListContainer = ({movies} : {movies: Movie[]}) => {
+const MovieListContainer = ({movies, favorites} : {movies: Movie[]; favorites: string[]}) => {
     return (
         <MovieList>
             {movies.map((movie, idx) => (
-                <MovieListItem key={idx} rank={idx + 1} movie={movie} />
+                <MovieListItem key={idx} rank={idx + 1} movie={movie} isFav={favorites.includes(movie.imdb_id)}/>
             ))}
         </MovieList>
     );
