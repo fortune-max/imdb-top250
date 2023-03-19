@@ -106,3 +106,12 @@ a {
     color-scheme: dark;
   }
 }
+
+.nav {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgb(var(--card-rgb));
+  border-bottom: 1px solid rgb(var(--card-border-rgb));
+}
