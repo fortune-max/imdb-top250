@@ -9,6 +9,6 @@ export type Movie = {
     name: string;
     rating: number;
     year: number;
-    imdb_id?: string;
+    imdb_id: string;
 }
 
